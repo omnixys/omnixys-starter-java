@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.omnixys</groupId>
+    <artifactId>omnixys-starter</artifactId>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
+
+    <name>omnixys-starter</name>
+    <description>Omnixys Platform Starter</description>
+
+    <properties>
+        <java.version>25</java.version>
+        <omnixys.bom.version>1.0.0</omnixys.bom.version>
+    </properties>
+
+        <url>https://github.com/omnixys/omnixys-starter-java</url>
+
+            <licenses>
+        <license>
+            <name>GPL-3.0-or-later</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>caleb-gyamfi</id>
+            <name>Caleb Gyamfi</name>
+            <email>caleb@omnixys.com</email>
+        </developer>
+    </developers>
+
+        <scm>
+        <connection>scm:git:git://github.com/omnixys/omnixys-starter-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:omnixys/omnixys-starter-java.git</developerConnection>
+        <url>https://github.com/omnixys/omnixys-starter-java</url>
+    </scm>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.omnixys</groupId>
+                <artifactId>omnixys-bom</artifactId>
+                <version>${omnixys.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/omnixys/omnixys-bom</url>
+    </repository>
+</repositories>
+
+
+    <dependencies>
+
+        <!-- Spring Boot AutoConfig -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+
+
+
+        <dependency>
+            <groupId>com.omnixys.observability</groupId>
+            <artifactId>omnixys-observability</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys.kafka</groupId>
+            <artifactId>omnixys-kafka</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys.logger</groupId>
+            <artifactId>omnixys-logger</artifactId>
+        </dependency>
+    </dependencies>
+
+        <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/omnixys/omnixys-starter-java</url>
+        </repository>
+    </distributionManagement>
+
+</project>
