@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # 🔥 REQUIRED
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -65,19 +65,16 @@ jobs:
     if: needs.release.outputs.released == 'true'
 
     steps:
-      # 🔥 FULL history + tags
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 🔥 CRITICAL: switch to latest release commit
       - name: Ensure latest main (release commit)
         run: |
           git fetch origin main
           git checkout origin/main
 
-      # 🔍 DEBUG (extrem hilfreich)
       - name: Print version from pom.xml
         run: |
           echo "Current pom version:"
@@ -90,23 +87,52 @@ jobs:
           java-version: 25
           cache: maven
 
-      - name: Setup Maven auth
+      # 🔐 CLEAN SPLIT: download vs publish
+      - name: Setup Maven auth (READ + WRITE separated)
         run: |
           mkdir -p ~/.m2
           cat <<EOF > ~/.m2/settings.xml
           <settings>
             <servers>
+
+                  <server>
+                      <id>github-bom</id>
+                      <username>${GITHUB_ACTOR}</username>
+                      <password>${GH_PACKAGES_READ_TOKEN}</password>
+                  </server>
+              
+                  <server>
+                      <id>github-observability</id>
+                      <username>${GITHUB_ACTOR}</username>
+                      <password>${GH_PACKAGES_READ_TOKEN}</password>
+                  </server>
+              
+                  <server>
+                      <id>github-kafka</id>
+                      <username>${GITHUB_ACTOR}</username>
+                      <password>${GH_PACKAGES_READ_TOKEN}</password>
+                  </server>
+              
+                  <server>
+                      <id>github-logger</id>
+                      <username>${GITHUB_ACTOR}</username>
+                      <password>${GH_PACKAGES_READ_TOKEN}</password>
+                  </server>
+
+              <!-- 🔼 WRITE TOKEN (for publishing THIS package) -->
               <server>
                 <id>github</id>
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GITHUB_TOKEN}</password>
               </server>
+
             </servers>
           </settings>
           EOF
         env:
+          GH_PACKAGES_READ_TOKEN: ${{ secrets.OMNIXYS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 🚀 FINAL publish (uses version from pom.xml)
+      # 🚀 Build & Publish
       - name: Build & Publish
         run: mvn -B clean deploy -DskipTests
