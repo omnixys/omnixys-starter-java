@@ -97,25 +97,25 @@ jobs:
 
                   <server>
                       <id>github-bom</id>
-                      <username>${GITHUB_ACTOR}</username>
+                      <username>omnixys</username>
                       <password>${GH_PACKAGES_READ_TOKEN}</password>
                   </server>
               
                   <server>
                       <id>github-observability</id>
-                      <username>${GITHUB_ACTOR}</username>
+                      <username>omnixys</username>
                       <password>${GH_PACKAGES_READ_TOKEN}</password>
                   </server>
               
                   <server>
                       <id>github-kafka</id>
-                      <username>${GITHUB_ACTOR}</username>
+                      <username>omnixys</username>
                       <password>${GH_PACKAGES_READ_TOKEN}</password>
                   </server>
               
                   <server>
                       <id>github-logger</id>
-                      <username>${GITHUB_ACTOR}</username>
+                      <username>omnixys</username>
                       <password>${GH_PACKAGES_READ_TOKEN}</password>
                   </server>
 
