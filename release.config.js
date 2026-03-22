@@ -176,7 +176,7 @@ export default {
 ---
 
 🏢 **Organization:** Omnixys
-📦 **Package:** Omnixys Starter
+📦 **Package:** Omnixys Starter JAVA
 🔗 **Repository:** Repository: <%= options.repositoryUrl %>
 🧭 **Docs:** https://omnixys.com/docs
 `,
