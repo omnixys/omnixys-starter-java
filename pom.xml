@@ -61,18 +61,34 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 🔥 EIN repository reicht -->
-    <repositories>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/omnixys/*</url>
-        </repository>
+<repositories>
 
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
+    <repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+
+    <repository>
+        <id>github-bom</id>
+        <url>https://maven.pkg.github.com/omnixys/omnixys-bom</url>
+    </repository>
+
+    <repository>
+        <id>github-observability</id>
+        <url>https://maven.pkg.github.com/omnixys/observability-java</url>
+    </repository>
+
+    <repository>
+        <id>github-kafka</id>
+        <url>https://maven.pkg.github.com/omnixys/kafka-java</url>
+    </repository>
+
+    <repository>
+        <id>github-logger</id>
+        <url>https://maven.pkg.github.com/omnixys/logger-java</url>
+    </repository>
+
+</repositories>
 
     <dependencies>
 

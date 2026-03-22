@@ -18,18 +18,61 @@ jobs:
       released: ${{ steps.semantic.outputs.released }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install semantic-release
+      # 🔥 WICHTIG: KEIN wildcard
+      - name: Setup Maven settings.xml
         run: |
+          mkdir -p ~/.m2
+          cat <<EOF > ~/.m2/settings.xml
+          <settings>
+            <servers>
+
+              <server>
+                <id>github-bom</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-observability</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-kafka</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-logger</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-publish</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GITHUB_TOKEN}</password>
+              </server>
+
+            </servers>
+          </settings>
+          EOF
+        env:
+          GH_PACKAGES_READ_TOKEN: ${{ secrets.OMNIXYS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - run: |
           npm install -g semantic-release \
             @semantic-release/changelog \
             @semantic-release/git \
@@ -39,13 +82,11 @@ jobs:
             @semantic-release/exec \
             conventional-changelog-conventionalcommits
 
-      - name: Run semantic-release
-        id: semantic
+      - id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx semantic-release | tee log.txt
-
           if grep -q "Published release" log.txt; then
             echo "released=true" >> $GITHUB_OUTPUT
           else
@@ -59,45 +100,50 @@ jobs:
     if: needs.release.outputs.released == 'true'
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Ensure latest main
-        run: |
+      - run: |
           git fetch origin main
           git checkout origin/main
 
-      - name: Print version from pom.xml
-        run: |
-          echo "Current pom version:"
-          grep -m1 "<version>" pom.xml
+      - run: grep -m1 "<version>" pom.xml
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 25
           cache: maven
 
-      # 🔥 EINZIGE saubere Lösung → Mirror + 1 Token
+      # 🔥 WICHTIG: KEIN wildcard
       - name: Setup Maven settings.xml
         run: |
           mkdir -p ~/.m2
           cat <<EOF > ~/.m2/settings.xml
           <settings>
-            <mirrors>
-              <mirror>
-                <id>github</id>
-                <mirrorOf>com.omnixys.*</mirrorOf>
-                <url>https://maven.pkg.github.com/omnixys/*</url>
-              </mirror>
-            </mirrors>
-
             <servers>
+
               <server>
-                <id>github</id>
+                <id>github-bom</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-observability</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-kafka</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-logger</id>
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GH_PACKAGES_READ_TOKEN}</password>
               </server>
@@ -107,6 +153,7 @@ jobs:
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GITHUB_TOKEN}</password>
               </server>
+
             </servers>
           </settings>
           EOF
@@ -114,5 +161,4 @@ jobs:
           GH_PACKAGES_READ_TOKEN: ${{ secrets.OMNIXYS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & Publish
-        run: mvn -B clean deploy -DskipTests
+      - run: mvn -B clean deploy -DskipTests
