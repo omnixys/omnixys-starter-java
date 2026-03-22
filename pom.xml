@@ -25,7 +25,7 @@
         <omnixys.bom.version>1.0.0</omnixys.bom.version>
     </properties>
 
-        <url>https://github.com/omnixys/omnixys-starter-java</url>
+    <url>https://github.com/omnixys/omnixys-starter-java</url>
 
     <licenses>
         <license>
@@ -42,13 +42,13 @@
         </developer>
     </developers>
 
-        <scm>
+    <scm>
         <connection>scm:git:git://github.com/omnixys/omnixys-starter-java.git</connection>
         <developerConnection>scm:git:ssh://github.com:omnixys/omnixys-starter-java.git</developerConnection>
         <url>https://github.com/omnixys/omnixys-starter-java</url>
     </scm>
 
-
+    <!-- 🔥 BOM -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -61,70 +61,27 @@
         </dependencies>
     </dependencyManagement>
 
-<repositories>
+    <!-- 🔥 EIN repository reicht -->
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/omnixys/*</url>
+        </repository>
 
-    <repository>
-        <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </repository>
-    
-    <repository>
-        <id>github-bom</id>
-        <url>https://maven.pkg.github.com/omnixys/omnixys-bom</url>
-            <releases>
-        <enabled>true</enabled>
-    </releases>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-    </repository>
-
-    <repository>
-        <id>github-observability</id>
-        <url>https://maven.pkg.github.com/omnixys/observability-java</url>
-            <releases>
-        <enabled>true</enabled>
-    </releases>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-    </repository>
-
-    <repository>
-        <id>github-kafka</id>
-        <url>https://maven.pkg.github.com/omnixys/kafka-java</url>
-            <releases>
-        <enabled>true</enabled>
-    </releases>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-    </repository>
-
-    <repository>
-        <id>github-logger</id>
-        <url>https://maven.pkg.github.com/omnixys/logger-java</url>
-            <releases>
-        <enabled>true</enabled>
-    </releases>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-    </repository>
-</repositories>
-
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 
     <dependencies>
 
-        <!-- Spring Boot AutoConfig -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
 
-
-
-
+        <!-- 🔥 Version kommt aus BOM -->
         <dependency>
             <groupId>com.omnixys.observability</groupId>
             <artifactId>omnixys-observability</artifactId>
@@ -139,11 +96,12 @@
             <groupId>com.omnixys.logger</groupId>
             <artifactId>omnixys-logger</artifactId>
         </dependency>
+
     </dependencies>
 
-        <distributionManagement>
+    <distributionManagement>
         <repository>
-            <id>github</id>
+            <id>github-publish</id>
             <url>https://maven.pkg.github.com/omnixys/omnixys-starter-java</url>
         </repository>
     </distributionManagement>
