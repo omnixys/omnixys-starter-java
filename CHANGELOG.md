@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.0.0](https://github.com/omnixys/omnixys-starter-java/compare/v2.0.0...v3.0.0) (2026-04-18)
+
+### T
+
+* **T:** t ([](https://github.com/omnixys/omnixys-starter-java/commit/2a4814094c4288719cb8f29264e3a20a98088a95))
+
 ## [2.0.0](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.0...v2.0.0) (2026-03-25)
 
 ### V2

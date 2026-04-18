@@ -14,7 +14,7 @@
 
     <groupId>com.omnixys</groupId>
     <artifactId>starter</artifactId>
-    <version>0.1.0</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <name>Omnixys Starter Package</name>
