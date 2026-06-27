@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.0](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.0...v2.0.0) (2026-06-27)
+
+### CD/CI
+
+* **CD/CI:** add action workflows ([](https://github.com/omnixys/omnixys-starter-java/commit/605b34e609a491895401fd605c594ef6254b750e))
+
 ## 1.0.0 (2026-04-18)
 
 ### Init
