@@ -124,8 +124,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
-
-        <!-- 🔥 Version kommt aus BOM -->
+        
         <dependency>
             <groupId>com.omnixys</groupId>
             <artifactId>observability</artifactId>
@@ -179,5 +178,4 @@
             <url>https://maven.pkg.github.com/omnixys/omnixys-starter-java</url>
         </repository>
     </distributionManagement>
-
 </project>
