@@ -113,7 +113,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 25
+          java-version: 26
           cache: maven
 
       # 🔥 WICHTIG: KEIN wildcard
@@ -126,6 +126,18 @@ jobs:
 
               <server>
                 <id>github-bom</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+          
+              <server>
+                <id>github-commons</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+          
+              <server>
+                <id>github-context</id>
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GH_PACKAGES_READ_TOKEN}</password>
               </server>
@@ -147,6 +159,30 @@ jobs:
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GH_PACKAGES_READ_TOKEN}</password>
               </server>
+          
+              <server>
+                <id>github-logger</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+          
+              <server>
+                <id>github-validation</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+          
+              <server>
+                <id>github-cache</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
+          
+              <server>
+                <id>github-storage</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GH_PACKAGES_READ_TOKEN}</password>
+              </server>
 
               <server>
                 <id>github-publish</id>
@@ -160,5 +196,6 @@ jobs:
         env:
           GH_PACKAGES_READ_TOKEN: ${{ secrets.OMNIXYS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
 
       - run: mvn -B clean deploy -DskipTests

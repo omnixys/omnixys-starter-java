@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.4</version>
+        <version>4.1.0</version>
         <relativePath/>
     </parent>
 
@@ -21,7 +21,7 @@
     <description>Omnixys Platform Starter</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>26</java.version>
         <omnixys.bom.version>1.0.0</omnixys.bom.version>
     </properties>
 
@@ -53,7 +53,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.omnixys</groupId>
-                <artifactId>omnixys-bom</artifactId>
+                <artifactId>bom</artifactId>
                 <version>${omnixys.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -61,34 +61,62 @@
         </dependencies>
     </dependencyManagement>
 
-<repositories>
+    <repositories>
+        <repository>
+            <id>github-bom</id>
+            <url>https://maven.pkg.github.com/omnixys/omnixys-bom</url>
+        </repository>
 
-    <repository>
-        <id>central</id>
-        <url>https://repo.maven.apache.org/maven2</url>
-    </repository>
+        <repository>
+            <id>github-commons</id>
+            <url>https://maven.pkg.github.com/omnixys/commons-java</url>
+        </repository>
 
-    <repository>
-        <id>github-bom</id>
-        <url>https://maven.pkg.github.com/omnixys/omnixys-bom</url>
-    </repository>
+        <repository>
+            <id>github-context</id>
+            <url>https://maven.pkg.github.com/omnixys/context-java</url>
+        </repository>
 
-    <repository>
-        <id>github-observability</id>
-        <url>https://maven.pkg.github.com/omnixys/observability-java</url>
-    </repository>
+        <repository>
+            <id>github-observability</id>
+            <url>https://maven.pkg.github.com/omnixys/observability-java</url>
+        </repository>
 
-    <repository>
-        <id>github-kafka</id>
-        <url>https://maven.pkg.github.com/omnixys/kafka-java</url>
-    </repository>
+        <repository>
+            <id>github-kafka</id>
+            <url>https://maven.pkg.github.com/omnixys/kafka-java</url>
+        </repository>
 
-    <repository>
-        <id>github-logger</id>
-        <url>https://maven.pkg.github.com/omnixys/logger-java</url>
-    </repository>
+        <repository>
+            <id>github-logger</id>
+            <url>https://maven.pkg.github.com/omnixys/logger-java</url>
+        </repository>
 
-</repositories>
+        <repository>
+            <id>github-security</id>
+            <url>https://maven.pkg.github.com/omnixys/security-starter-java</url>
+        </repository>
+
+        <repository>
+            <id>github-validation</id>
+            <url>https://maven.pkg.github.com/omnixys/validation-java</url>
+        </repository>
+
+        <repository>
+            <id>github-cache</id>
+            <url>https://maven.pkg.github.com/omnixys/cache-java</url>
+        </repository>
+
+        <repository>
+            <id>github-storage</id>
+            <url>https://maven.pkg.github.com/omnixys/storage-java</url>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 
     <dependencies>
 
@@ -113,11 +141,41 @@
             <artifactId>logger</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>security-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>cache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.omnixys</groupId>
+            <artifactId>storage</artifactId>
+        </dependency>
+
     </dependencies>
 
     <distributionManagement>
         <repository>
-            <id>github-publish</id>
+            <id>github-commons</id>
             <url>https://maven.pkg.github.com/omnixys/omnixys-starter-java</url>
         </repository>
     </distributionManagement>
