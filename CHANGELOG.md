@@ -3,6 +3,16 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.0.1](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.0...v1.0.1) (2026-07-16)
+
+### Deps
+
+* **Deps:** update dependencies ([](https://github.com/omnixys/omnixys-starter-java/commit/54d1db539833bbd6a86e33e648a1611cc8f16cd8))
+
+### Other
+
+* **Other:** Merge branch 'main' of https://github.com/omnixys/omnixys-starter-java ([](https://github.com/omnixys/omnixys-starter-java/commit/d034ad69a7872c2ca182e65d9456d5b4433d210c))
+
 ## 1.0.0 (2026-06-27)
 
 ### CD/CI
