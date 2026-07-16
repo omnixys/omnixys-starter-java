@@ -38,7 +38,7 @@
         <developer>
             <id>caleb-gyamfi</id>
             <name>Caleb Gyamfi</name>
-            <email>caleb@omnixys.com</email>
+            <email>caleb.gyamfi@omnixys.com</email>
         </developer>
     </developers>
 
@@ -124,7 +124,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>com.omnixys</groupId>
             <artifactId>observability</artifactId>
