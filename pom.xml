@@ -22,7 +22,7 @@
 
     <properties>
         <java.version>26</java.version>
-        <omnixys.bom.version>1.0.0</omnixys.bom.version>
+        <omnixys.bom.version>1.0.1</omnixys.bom.version>
     </properties>
 
     <url>https://github.com/omnixys/omnixys-starter-java</url>
@@ -48,7 +48,6 @@
         <url>https://github.com/omnixys/omnixys-starter-java</url>
     </scm>
 
-    <!-- 🔥 BOM -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -174,7 +173,7 @@
 
     <distributionManagement>
         <repository>
-            <id>github-commons</id>
+            <id>github-starter</id>
             <url>https://maven.pkg.github.com/omnixys/omnixys-starter-java</url>
         </repository>
     </distributionManagement>

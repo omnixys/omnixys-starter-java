@@ -100,6 +100,12 @@ jobs:
                 <password>${GITHUB_TOKEN}</password>
               </server>
 
+              <server>
+                <id>github-starter</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GITHUB_TOKEN}</password>
+              </server>
+
             </servers>
           </settings>
           EOF
@@ -153,7 +159,6 @@ jobs:
           java-version: 26
           cache: maven
 
-      # 🔥 WICHTIG: KEIN wildcard
       - name: Setup Maven settings.xml
         run: |
           mkdir -p ~/.m2
@@ -223,6 +228,12 @@ jobs:
 
               <server>
                 <id>github-publish</id>
+                <username>${GITHUB_ACTOR}</username>
+                <password>${GITHUB_TOKEN}</password>
+              </server>
+
+              <server>
+                <id>github-starter</id>
                 <username>${GITHUB_ACTOR}</username>
                 <password>${GITHUB_TOKEN}</password>
               </server>
