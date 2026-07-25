@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.0.3](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.2...v1.0.3) (2026-07-25)
+
+### Deps
+
+* **Deps:** update observability version ([](https://github.com/omnixys/omnixys-starter-java/commit/b24173ec0369ea02e0bd68af586ba7795027d84b))
+
 ## [1.0.2](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.1...v1.0.2) (2026-07-23)
 
 ### Deps
