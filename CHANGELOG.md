@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.0.5](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.4...v1.0.5) (2026-08-03)
+
+### Deps
+
+* **Deps:** update starter deps ([](https://github.com/omnixys/omnixys-starter-java/commit/965d5c355e47b668f0b5d3a10227d8558e230d25))
+
 ## [1.0.4](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.3...v1.0.4) (2026-08-03)
 
 ### Deps
