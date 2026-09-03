@@ -22,7 +22,7 @@
 
     <properties>
         <java.version>26</java.version>
-        <omnixys.bom.version>1.0.6</omnixys.bom.version>
+        <omnixys.bom.version>1.0.7</omnixys.bom.version>
     </properties>
 
     <url>https://github.com/omnixys/omnixys-starter-java</url>
