@@ -3,6 +3,24 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.0.6](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.5...v1.0.6) (2026-09-03)
+
+### Agent
+
+* **Agent:** add repository development instructions ([](https://github.com/omnixys/omnixys-starter-java/commit/0a212397437c53c561be08ebade2abb6b3b9f23b))
+
+### Ci
+
+* **Ci:** align CI structure with full workflow set, 3-job release, and pinned conventionalcommits ([](https://github.com/omnixys/omnixys-starter-java/commit/140f4f86f38e3047e3bff98b938f4260c908676b))
+
+### Other
+
+* **Other:** Merge pull request #1 from omnixys/migration/uuid-v7 ([](https://github.com/omnixys/omnixys-starter-java/commit/4f8eed8bf80cc41ba47cc98d19eedd096f750098)), closes [#1](https://github.com/omnixys/omnixys-starter-java/issues/1)
+
+### Runtime
+
+* **Runtime:** align spring boot and build toolchain to local standard ([](https://github.com/omnixys/omnixys-starter-java/commit/07eaf5b44416542dc669da9f96e2ee7aeddf9ac5))
+
 ## [1.0.5](https://github.com/omnixys/omnixys-starter-java/compare/v1.0.4...v1.0.5) (2026-08-03)
 
 ### Deps
