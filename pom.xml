@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.0</version>
+        <version>4.1.1</version>
         <relativePath/>
     </parent>
 
@@ -22,7 +22,7 @@
 
     <properties>
         <java.version>26</java.version>
-        <omnixys.bom.version>1.0.6</omnixys.bom.version>
+        <omnixys.bom.version>1.0.7</omnixys.bom.version>
     </properties>
 
     <url>https://github.com/omnixys/omnixys-starter-java</url>
